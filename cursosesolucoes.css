@@ -1,0 +1,526 @@
+/* ==========================================================================
+   DEFINIÇÃO DAS VARIÁVEIS DA MARCA (CONECTASABER)
+   ========================================================================== */
+:root {
+    --cs-navy-dark: #0f172a;
+    --cs-navy-med: #1e293b;
+    --cs-purple: #6847de;
+    --cs-orange: #fd7e14;
+    --bg-card: #ffffff;
+    --border-color: #e2e8f0;
+    --text-main: #334155;
+    --text-muted: #64748b;
+    --font-heading: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-pill: 9999px;
+    --transition: all 0.25s ease;
+}
+
+/* ==========================================================================
+   PÁGINA DE PROJETO: CURSOS E SOLUÇÕES
+   ========================================================================== */
+
+/* Header com gradiente ajustado para bater com a Home */
+.header-projeto {
+    background: linear-gradient(135deg, #1e3a8a 0%, var(--cs-navy-med) 40%, var(--cs-purple) 100%);
+    color: #ffffff;
+    padding: 2.25rem 1.5rem;
+    box-shadow: var(--shadow-md);
+    margin-bottom: 2.5rem;
+}
+
+.header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.nav-topo a {
+    display: inline-flex;
+    align-items: center;
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 0.5rem 1.1rem;
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.nav-topo a:hover {
+    background-color: var(--cs-orange);
+    border-color: var(--cs-orange);
+    transform: translateX(-4px);
+}
+
+.header-conteudo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.header-conteudo h1 {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+    margin: 0;
+}
+
+/* ==========================================================================
+   LOGOTIPOS MOODLE E GENIALLY
+   ========================================================================== */
+.logos-integracao {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+}
+
+.logos-integracao img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    background: #ffffff;
+    padding: 8px;
+    border-radius: 50%;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+    border: 3px solid #ffffff;
+    transition: var(--transition);
+}
+
+.logos-integracao img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* ==========================================================================
+   LAYOUT PRINCIPAL E INTRODUÇÃO
+   ========================================================================== */
+.container-principal {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem 4rem;
+}
+
+.secao-intro {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1.75rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.secao-intro h2 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    margin-top: 0;
+    color: var(--cs-navy-dark);
+}
+
+.secao-intro p {
+    font-size: 0.98rem;
+    line-height: 1.65;
+    margin-bottom: 0.8rem;
+    color: var(--text-main);
+}
+
+.destaque-roxo {
+    color: var(--cs-purple);
+    font-weight: 600;
+}
+
+.card-objetivo-geral {
+    background: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--cs-purple);
+    border-radius: var(--radius-sm);
+    padding: 1.25rem;
+    margin-top: 1.25rem;
+}
+
+.card-objetivo-geral h3 {
+    color: var(--cs-purple);
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 0.4rem;
+}
+
+.card-objetivo-geral p {
+    margin: 0;
+    color: var(--text-main);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   SISTEMA DE ABAS INTERATIVAS
+   ========================================================================== */
+.tabs-navegacao {
+    display: flex;
+    gap: 0.6rem;
+    overflow-x: auto;
+    border-bottom: 2px solid var(--border-color);
+    margin-bottom: 1.75rem;
+    padding-bottom: 0.5rem;
+    scrollbar-width: thin;
+}
+
+.tab-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 0.7rem 1.25rem;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-main);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: var(--transition);
+    font-family: inherit;
+}
+
+.tab-btn:hover {
+    border-color: var(--cs-purple);
+    color: var(--cs-purple);
+}
+
+.tab-btn.active {
+    background-color: var(--cs-purple);
+    color: #ffffff;
+    border-color: var(--cs-purple);
+    box-shadow: var(--shadow-sm);
+}
+
+.tab-pane {
+    display: none;
+    animation: fadeIn 0.35s ease-in-out;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.grid-conteudo {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+}
+
+@media (min-width: 900px) {
+    .grid-conteudo {
+        grid-template-columns: 1.1fr 0.9fr;
+        align-items: center;
+    }
+}
+
+.conteudo-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.conteudo-texto h3 {
+    font-family: var(--font-heading);
+    color: var(--cs-purple);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.conteudo-texto p {
+    color: var(--text-main);
+    font-size: 0.98rem;
+    line-height: 1.65;
+    margin: 0;
+}
+
+/* ==========================================================================
+   CARDS DE OBJETIVOS E MÓDULOS
+   ========================================================================== */
+.card-objetivo-modulo {
+    background: #f8fafc;
+    border-left: 4px solid var(--cs-purple);
+    border-radius: var(--radius-sm);
+    padding: 1.25rem;
+    border-top: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.card-objetivo-modulo:hover {
+    transform: translateX(4px);
+    box-shadow: var(--shadow-sm);
+}
+
+.badge-modulo {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--cs-purple);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.5rem;
+    background: rgba(104, 71, 222, 0.1);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+}
+
+.badge-modulo.orange-badge {
+    color: var(--cs-orange);
+    background: rgba(253, 126, 20, 0.1);
+}
+
+/* ==========================================================================
+   SIDEBAR GALERIA (IMAGENS DA ABA)
+   ========================================================================== */
+.sidebar-galeria {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-img {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.card-img:hover {
+    box-shadow: var(--shadow-hover);
+    border-color: var(--cs-purple);
+}
+
+.card-img img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.card-img img:hover {
+    transform: scale(1.02);
+}
+
+.card-img figcaption {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    padding: 0.75rem 1rem;
+    background: #f8fafc;
+    border-top: 1px solid var(--border-color);
+    font-style: italic;
+    text-align: center;
+}
+
+/* ==========================================================================
+   SEÇÃO FINAL: SCROLL DE DEPOIMENTOS + CTA LADO A LADO
+   ========================================================================== */
+.container-cta-recomendacoes {
+    display: flex;
+    gap: 2rem;
+    align-items: stretch;
+    margin: 3rem auto;
+    max-width: 1000px;
+}
+
+/* Scroll de Depoimentos (Esquerda) */
+.scroll-recomendacoes {
+    flex: 1;
+    height: 320px;
+    overflow-y: auto;
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    background: var(--bg-card);
+    box-shadow: var(--shadow-sm);
+    scrollbar-width: thin;
+    scrollbar-color: var(--cs-orange) #f1f5f9;
+}
+
+.scroll-recomendacoes::-webkit-scrollbar {
+    width: 8px;
+}
+
+.scroll-recomendacoes::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 4px;
+}
+
+.scroll-recomendacoes::-webkit-scrollbar-thumb {
+    background-color: var(--cs-orange);
+    border-radius: 4px;
+}
+
+.scroll-recomendacoes h3 {
+    font-size: 1.2rem;
+    color: var(--cs-navy-dark);
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-family: var(--font-heading);
+}
+
+/* Bloco de CTA Laranja (Direita) */
+.cta-valor-moodle {
+    flex: 1;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-left: 5px solid var(--cs-orange);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.cta-valor-moodle:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+.cta-valor-moodle h3 {
+    color: var(--cs-navy-dark);
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    font-family: var(--font-heading);
+}
+
+.cta-valor-moodle p {
+    color: var(--text-main);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.btn-moodle-destaque {
+    display: inline-block;
+    background-color: var(--cs-orange);
+    color: #ffffff;
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(253, 126, 20, 0.3);
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-moodle-destaque:hover {
+    background-color: #e66c0d;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(253, 126, 20, 0.4);
+}
+
+/* ==========================================================================
+   RODAPÉ
+   ========================================================================== */
+.rodape {
+    text-align: center;
+    padding: 2.5rem 1rem 1.5rem 1rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    width: 100%;
+}
+
+/* ==========================================================================
+   MODAL DE ZOOM & BOTÃO DE FECHAR
+   ========================================================================== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 23, 42, 0.92);
+    backdrop-filter: blur(6px);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 80vh;
+    border-radius: var(--radius-md);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    object-fit: contain;
+}
+
+#caption {
+    margin-top: 1rem;
+    color: #ffffff;
+    font-size: 0.95rem;
+    text-align: center;
+    max-width: 600px;
+}
+
+.close-modal {
+    position: absolute;
+    top: 1.25rem;
+    right: 2rem;
+    color: #ffffff;
+    font-size: 3rem;
+    font-weight: 300;
+    cursor: pointer;
+    line-height: 1;
+    transition: var(--transition);
+    user-select: none;
+    z-index: 2001;
+}
+
+.close-modal:hover {
+    color: var(--cs-orange);
+    transform: scale(1.15);
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE
+   ========================================================================== */
+@media (max-width: 768px) {
+    .container-cta-recomendacoes {
+        flex-direction: column;
+    }
+
+    .scroll-recomendacoes {
+        height: 280px;
+    }
+
+    .header-conteudo {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-conteudo h1 {
+        font-size: 1.7rem;
+    }
+
+    .close-modal {
+        top: 1rem;
+        right: 1.25rem;
+        font-size: 2.5rem;
+    }
+}

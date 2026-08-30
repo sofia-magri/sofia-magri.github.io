@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cursosesolucoes.css">
+    <link rel="icon" href="Imagens/html.ico.ico" type="image/x-icon">
+    <title>Projetos | Sofia Magri</title>
+    <style>
+        /* APLICAÇÃO DAS CORES DO HERO PRINCIPAL */
+        :root {
+            --header-bg: linear-gradient(110deg, #1a2780 0%, #3535ab 50%, #6847de 100%);
+        }
+
+        .header-projeto {
+            background: var(--header-bg);
+            color: #ffffff;
+        }
+
+        .nav-topo a {
+            color: #ffffff;
+        }
+
+        .rodape {
+            text-align: center;
+            padding: 2.5rem 1rem 1.5rem 1rem;
+            color: #6c757d;
+            font-size: 0.95rem;
+            width: 100%;
+        }
+
+        /* FIX: a logo do hero estava herdando o tamanho real da imagem.
+           Regra específica desta página para igualar ao hero de certificacao.html */
+        .header-projeto .logo-hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .header-projeto .logo-hero img {
+            max-height: 130px;
+            width: auto;
+            height: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        /* Estilos específicos para a listagem de projetos */
+        .grid-projetos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .card-projeto {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border-top: 4px solid #6b46c1; /* Roxo característico */
+        }
+
+        .card-projeto:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .card-projeto .numero-case {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #6b46c1;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .card-projeto h3 {
+            font-size: 1.35rem;
+            color: #343a40;
+            margin-bottom: 0.8rem;
+            line-height: 1.3;
+        }
+
+        .card-projeto .subtitulo-case {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #495057;
+            margin-bottom: 1rem;
+        }
+
+        .card-projeto p {
+            color: #6c757d;
+            font-size: 0.98rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .lista-topicos-case {
+            background-color: #f8f9fa;
+            border-radius: 6px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: #495057;
+            border: 1px solid #e9ecef;
+        }
+
+        .lista-topicos-case p {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #343a40;
+        }
+
+        .lista-topicos-case ul {
+            padding-left: 1.2rem;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .link-case-completo {
+            display: inline-block;
+            background-color: #fd7e14; /* Laranja da CTA */
+            color: #ffffff;
+            padding: 0.7rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .link-case-completo:hover {
+            background-color: #e66c0d;
+            transform: translateY(-2px);
+        }
+
+        .subtitulo-intro {
+            font-size: 1.15rem;
+            color: #495057;
+            max-width: 850px;
+            line-height: 1.6;
+            margin-top: 0.5rem;
+            margin-bottom: 2.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO IDÊNTICO AO DE CERTIFICAÇÕES -->
+    <header class="header-projeto">
+        <div class="header-inner">
+            <div class="nav-topo">
+                <a href="index.html">← Voltar ao Portfólio</a>
+            </div>
+            <div class="header-conteudo">
+                <div class="texto-hero">
+                    <h1>Projetos</h1>
+                    <p>Projetos que transformam necessidades de aprendizagem em experiências digitais planejadas, desenvolvidas e implementadas.</p>
+                </div>
+                <div class="logo-hero">
+                    <img src="Imagens/ChatGPT Image 27_07_2026, 09_59_44.png" alt="Logo ConectaSaber">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container-principal">
+
+        <!-- INTRODUÇÃO & OBJETIVO GERAL -->
+        <section class="secao-intro">
+            <h2>Cases de Design Instrucional</h2>
+        </section>
+
+        <!-- GRADE DE PROJETOS / CASES -->
+        <div class="grid-projetos">
+
+            <!-- CASE 01 -->
+            <article class="card-projeto">
+                <div>
+                    <span class="numero-case">01 · Comunicação & Rapport</span>
+                    <h3>Arquitetura de aprendizagem e experiência no Moodle</h3>
+                    <p class="subtitulo-case">Curso desenvolvido para jovens de 12 a 17 anos, estruturado para promover uma experiência de aprendizagem visual, interativa e adequada ao público, com recursos de gamificação e diferentes formatos de interação.</p>
+                    
+                    <div class="lista-topicos-case">
+                        <p>O que o case apresenta:</p>
+                        <ul>
+                            <li>Arquitetura da aprendizagem</li>
+                            <li>Decisões de design</li>
+                            <li>Storyboard</li>
+                            <li>Evolução V1 → V2</li>
+                            <li>Experiência implementada</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <a href="cursosesolucoes.html" class="link-case-completo">→ Ver case completo</a>
+                </div>
+            </article>
+
+            <!-- CASE 02 -->
+            <article class="card-projeto">
+                <div>
+                    <span class="numero-case">02 · Formação de Auxiliares de Desenvolvimento Infantil</span>
+                    <h3>Da necessidade institucional à prática pedagógica</h3>
+                    <p class="subtitulo-case">Solução educacional desenvolvida a partir de uma necessidade institucional, conectando fundamentos do desenvolvimento infantil à prática profissional das auxiliares.</p>
+                    
+                    <div class="lista-topicos-case">
+                        <p>O que o case apresenta:</p>
+                        <ul>
+                            <li>Análise da necessidade</li>
+                            <li>Arquitetura instrucional</li>
+                            <li>Objetivos de aprendizagem</li>
+                            <li>Desenvolvimento da solução</li>
+                            <li>Experiência final</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <a href="solucoesauxiliar.html" class="link-case-completo">→ Ver case completo</a>
+                </div>
+            </article>
+
+        </div>
+
+    </main>
+
+    <footer class="rodape">
+        <p>© 2026 Sofia Magri —
+        Design Instrucional &amp;
+        Experiências de Aprendizagem</p>
+    </footer>
+
+</body>
+</html>

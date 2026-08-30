@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre Mim — Sofia Magri | Design Instrucional</title>
+  <link rel="shortcut icon" href="Imagens/html.ico.ico" type="image/x-icon">
+  
+  <!-- Fontes Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --header-bg: linear-gradient(110deg, #1a2780 0%, #3535ab 50%, #6847de 100%);
+      --body-bg: #f8fafc;
+      --card-bg: #ffffff;
+      --primary-purple: #5c3bc9;
+      --primary-purple-light: #eef2ff;
+      --accent-orange: #f26b1d;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+      --border-color: #e2e8f0;
+      --font-title: 'Kaushan Script', cursive;
+      --font-main: 'Plus Jakarta Sans', sans-serif;
+      --shadow-sm: 0 4px 12px rgba(30, 50, 89, 0.05);
+      --shadow-lg: 0 12px 32px rgba(30, 50, 89, 0.1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--body-bg);
+      color: var(--text-dark);
+      font-family: var(--font-main);
+      line-height: 1.8;
+      font-size: 1.05rem;
+      overflow-x: hidden;
+    }
+
+    .progress-bar {
+      position: fixed; top: 0; left: 0; height: 4px;
+      background: linear-gradient(90deg, var(--primary-purple), var(--accent-orange));
+      width: 0%; z-index: 1000; transition: width 0.1s ease-out;
+    }
+
+    .top-nav {
+      max-width: 1200px; margin: 0 auto;
+      padding: 1.5rem 1.5rem 0 1.5rem;
+      display: flex; align-items: center;
+    }
+
+    /* Estilo reutilizado para o botão inferior */
+    .bottom-nav {
+      max-width: 1200px; margin: 0 auto;
+      padding: 1.5rem 1.5rem 0 1.5rem;
+      display: flex; align-items: center;
+    }
+
+    .btn-back {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      text-decoration: none; color: var(--primary-purple);
+      background: var(--primary-purple-light);
+      padding: 0.55rem 1.2rem; border-radius: 30px;
+      font-weight: 700; font-size: 0.9rem; transition: all 0.2s ease;
+    }
+
+    .btn-back:hover {
+      background: var(--primary-purple); color: #ffffff;
+      transform: translateX(-3px);
+    }
+
+    .hero {
+      max-width: 900px; margin: 0 auto;
+      padding: 2.5rem 1.5rem 1.5rem 1.5rem; text-align: center;
+    }
+
+    .hero-tag {
+      font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--primary-purple); background: var(--primary-purple-light);
+      font-weight: 800; padding: 0.35rem 0.9rem; border-radius: 20px;
+      display: inline-block; margin-bottom: 0.8rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 400; line-height: 1.2;
+      color: var(--primary-purple);
+      text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+
+    /* Estilos do Título Principal Dividido */
+    .hero-title-cursive {
+      font-family: var(--font-title);
+      font-size: clamp(2.2rem, 4.5vw, 3rem);
+      color: var(--primary-purple);
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .hero-title-main {
+      font-family: var(--font-main);
+      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+      font-weight: 700;
+      color: var(--primary-purple);
+      display: block;
+      line-height: 1.35;
+    }
+
+    .scrolly-container {
+      max-width: 1200px; margin: 0 auto;
+      padding: 1.5rem 1.5rem 3rem 1.5rem;
+      display: grid; grid-template-columns: 1fr; gap: 2rem;
+    }
+
+    @media (min-width: 900px) {
+      .scrolly-container { grid-template-columns: 1.15fr 0.85fr; gap: 3.5rem; }
+    }
+
+    .story-column {
+      display: flex; flex-direction: column;
+      gap: 6vh; padding-bottom: 10vh;
+    }
+
+    .step {
+      opacity: 0.35; transform: translateY(15px);
+      transition: all 0.4s ease; background: var(--card-bg);
+      padding: 2rem; border-radius: 16px; border: 1px solid var(--border-color);
+    }
+
+    .step.active-step {
+      opacity: 1; transform: translateY(0);
+      box-shadow: var(--shadow-sm);
+      border-left: 5px solid var(--primary-purple);
+    }
+
+    .chapter-num {
+      font-size: 0.8rem; font-weight: 800; color: var(--accent-orange);
+      text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.3rem;
+    }
+
+    .step h2 {
+      font-size: 1.35rem; font-weight: 800; color: var(--text-dark);
+      margin-bottom: 0.9rem; line-height: 1.3;
+    }
+
+    .step p { margin-bottom: 1rem; color: var(--text-dark); }
+    .step p:last-child { margin-bottom: 0; }
+
+    .destaque-cursivo {
+      font-family: var(--font-title); color: var(--primary-purple);
+      font-weight: 700; font-size: 1.25em; line-height: 1.3; padding: 0 0.15em;
+    }
+
+    .theory-callout {
+      background: var(--primary-purple-light);
+      border-left: 4px solid var(--primary-purple);
+      padding: 1.2rem 1.4rem; border-radius: 8px; margin: 1.2rem 0;
+    }
+
+    .theory-callout p {
+      font-size: 0.95rem; color: var(--text-dark); margin: 0; line-height: 1.6;
+    }
+
+    .sticky-panel { position: relative; }
+
+    @media (min-width: 900px) {
+      .sticky-panel {
+        position: sticky; top: 4rem;
+        height: calc(100vh - 8rem);
+        display: flex; align-items: center; justify-content: center;
+      }
+    }
+
+    .media-card {
+      width: 100%; min-height: 480px; background: var(--card-bg);
+      border: 1px solid var(--border-color); border-radius: 16px;
+      box-shadow: var(--shadow-lg); display: flex; flex-direction: column;
+      overflow: hidden; position: absolute; opacity: 0;
+      transform: translateY(20px) scale(0.96);
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+    }
+
+    .media-card.active {
+      opacity: 1; transform: translateY(0) scale(1); pointer-events: auto;
+    }
+
+    .media-container {
+      width: 100%; height: 340px;
+      background: linear-gradient(135deg, #1a2780, #5c3bc9);
+      display: flex; align-items: center; justify-content: center;
+      color: #ffffff; position: relative;
+    }
+
+    .media-container img { width: 100%; height: 100%; object-fit: cover; }
+
+    .media-info {
+      padding: 1.3rem 1.5rem; flex-grow: 1;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+
+    .media-info h3 {
+      font-size: 1.1rem; font-weight: 800; color: var(--text-dark); margin-bottom: 0.3rem;
+    }
+
+    .media-info p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; }
+
+    .showcase-section {
+      background: #f1f5f9; padding: 3.5rem 1.5rem;
+      margin-top: 1rem; border-top: 1px solid var(--border-color);
+    }
+
+    .showcase-container { max-width: 1100px; margin: 0 auto; }
+
+    .section-header { text-align: center; margin-bottom: 2rem; }
+
+    .section-header h2 {
+      font-size: 1.8rem; font-weight: 800; color: var(--text-dark); margin-bottom: 0.4rem;
+    }
+
+    .section-header p { color: var(--text-muted); font-size: 0.95rem; }
+
+    .grid-projects {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--card-bg); border-radius: 14px; padding: 1.6rem;
+      border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);
+      transition: transform 0.25s ease;
+    }
+
+    .project-card:hover { transform: translateY(-3px); }
+
+    .project-badge {
+      font-size: 0.75rem; font-weight: 800; text-transform: uppercase;
+      color: var(--primary-purple); background: var(--primary-purple-light);
+      padding: 0.3rem 0.7rem; border-radius: 6px; display: inline-block; margin-bottom: 0.8rem;
+    }
+
+    .project-card h3 {
+      font-size: 1.15rem; font-weight: 800; color: var(--text-dark); margin-bottom: 0.5rem;
+    }
+
+    .project-card p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; }
+
+    footer {
+      text-align: center; padding: 2rem 1rem;
+      font-size: 0.88rem; color: var(--text-muted);
+      border-top: 1px solid var(--border-color);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="progress-bar" id="progressBar"></div>
+
+  <nav class="top-nav">
+    <a href="index.html" class="btn-back">← Voltar ao Portfólio</a>
+  </nav>
+
+  <header class="hero">
+    <span class="hero-tag">Jornada & Propósito</span>
+    <h1>
+      <span class="hero-title-cursive">Propósito, Empatia e Precisão Técnica:</span>
+      <span class="hero-title-main">A história por trás do meu Design Instrucional.</span>
+    </h1>
+  </header>
+
+  <main class="scrolly-container">
+    
+    <div class="story-column">
+      
+      <article class="step active-step" data-step="1">
+        <div class="chapter-num">Capítulo 01</div>
+        <h2>A Biblioteca como Refúgio</h2>
+        <p>
+          Sou uma pessoa nascida numa região suburbana do interior de SP, criada num CDHU sem recursos básicos. Troquei muitos momentos de diversão por horas de estudo com livros. Na minha infância, sem ChatGPT, a busca era na Barsa, no dicionário Aurélio, num conjunto de livros emprestados da biblioteca que eu passava horas analisando, grifando, sublinhando — e confesso, fazendo anotações nas margens (perdão, biblioteca).
+        </p>
+        <p>
+          Já ouvi que pobre não cursa universidade, que meus recursos limitados não me dariam futuro algum. Curioso é que foi justamente a falta de recursos que me fez amar os livros: sem dinheiro para me deixar com babás, minha mãe me deixava na biblioteca da cidade, lendo livros e historinhas sob o olhar das tias, enquanto ela ia trabalhar. Eu era muito pequena, no máximo 6 anos, mas já me encantava pelas letras no papel, pelas imagens — e ali surgiu uma amizade incrível: <span class="destaque-cursivo">eu e os livros</span>.
+        </p>
+      </article>
+
+      <article class="step" data-step="2">
+        <div class="chapter-num">Capítulo 02</div>
+        <h2>Superação e Acesso</h2>
+        <p>
+          O resultado, depois de muito esforço, noites de choro e festas perdidas, foi uma das melhores notas no Enem. Com isso obtive uma bolsa integral no ProUni para cursar Pedagogia, que concluí com louvor. Isso me deu a alegria de ter meus primeiros trabalhos como professora.
+        </p>
+        <p>
+          Mas ainda assim eu era diferente. E na Pedagogia descobri minha missão: mostrar que o estudo muda vidas de verdade — uma mudança que ocorre passo a passo e se constrói devagar, no meu caso até pedalando para a faculdade porque não sobrava dinheiro para o ônibus e os materiais ao mesmo tempo, enquanto os carros do ano enchiam o estacionamento e os cochichos me seguiam pelos corredores. Estudar muda vidas, é verdade — mas ninguém muda de vida sem <span class="destaque-cursivo">pagar algum preço no caminho</span>. Esse foi um dos meus.
+        </p>
+      </article>
+
+      <article class="step" data-step="3">
+        <div class="chapter-num">Capítulo 03</div>
+        <h2>Da Prática às Teorias de Aprendizagem</h2>
+        <p>
+          O que me manteve firme em toda essa trajetória foi aquele antigo hábito diante dos livros. Eu me perguntava sempre: <em>o que eu já sei sobre esse assunto? O que este livro, esta aula, quer ampliar no meu saber?</em> Então eu lia, aplicava os conceitos novos, analisava o que eu já sabia e o quanto tinha aprendido — e por fim criava meus próprios materiais de estudo com os novos conceitos e temas aprendidos.
+        </p>
+        
+        <div class="theory-callout">
+          <p>
+            Hoje ensino a partir desses mesmos princípios. Estão todos na <strong>Taxonomia de Bloom</strong> — e eu nem sabia quem era Bloom. Ao fornecer objetivos claros e partir do conhecimento prévio dos meus alunos, eu estava usando os <strong>Nove Eventos de Gagné</strong> e o <strong>Construtivismo de Ausubel</strong>, sem nunca ter lido esses nomes. Eles fizeram parte da minha essência desde a infância.
+          </p>
+        </div>
+      </article>
+
+      <article class="step" data-step="4">
+        <div class="chapter-num">Capítulo 04</div>
+        <h2>Design Instrucional & Precisão Técnica</h2>
+        <p>
+          É por isso que eu crio trilhas de aprendizagem centradas em cada aluno — sejam os pequeninos do infantil, do fundamental, ou os adultos de um curso profissionalizante que eu ofereço via Moodle — priorizando sempre a segurança emocional e a clareza.
+        </p>
+        <p>
+          Sei o que é ser rotulada e sentir que não pertence. Muitos alunos chegam a mim assim — cheios de rótulos, sem acreditar mais em si, pensando ser só mais um cumprindo uma tarefa mecânica que não vai levá-los a lugar nenhum. É aí que aquilo que me fez vencer entra em ação por eles: mostro, detalhe por detalhe, o porquê e o como vai dar certo. 
+        </p>
+        <p>
+          Uma instrução ambígua, uma falha de navegação, não são "pequenos erros" — <b> são barreiras invisíveis que podem fazer o estudante duvidar da própria capacidade</b>. Já me chamaram de chata por isso, por não deixar passar uma inconsistência que outros considerariam pequena demais para importar. Mas eu sei o que um detalhe ignorado pode custar a quem está do outro lado aprendendo. <span class="destaque-cursivo">Minha busca pela precisão técnica existe para garantir que a única preocupação do aluno seja aprender.</span>
+        </p>
+      </article>
+
+      <article class="step" data-step="5">
+        <div class="chapter-num">Capítulo 05</div>
+        <h2>O Propósito Final</h2>
+        <p>
+          Um dia, uma criança de seis anos encontrou nos livros o único lugar onde ninguém duvidava dela. Tampouco se importava com seu poder aquisitivo, ou com o que diziam que ela deveria ser. 
+        </p>
+        <p>
+          Hoje eu construo esse lugar para os meus alunos — um curso, uma aula, uma trilha de cada vez. Porque toda criança, todo adulto que ainda está aprendendo, merece pelo menos um espaço onde alguém diga, e realmente acredite: <span class="destaque-cursivo">sim, você consegue!</span>
+        </p>
+      </article>
+
+    </div>
+
+    <div class="sticky-panel">
+      
+      <div class="media-card card-1 active" data-panel="1">
+        <div class="media-container">
+          <img src="midias/leitura_no_infantil.png" alt="Sofia lendo uma história para crianças da Educação Infantil">
+        </div>
+        <div class="media-info">
+          <h3>Leitura no Infantil</h3>
+          <p>O primeiro contato com a leitura em roda, plantando a semente do afeto pelos livros.</p>
+        </div>
+      </div>
+
+      <div class="media-card card-2" data-panel="2">
+        <div class="media-container">
+          <img src="midias/1_ano.png" alt="Sofia com alunos do 1º ano do Ensino Fundamental">
+        </div>
+        <div class="media-info">
+          <h3>1º Ano do Fundamental</h3>
+          <p>Os primeiros passos da alfabetização, onde cada letra vira descoberta.</p>
+        </div>
+      </div>
+
+      <div class="media-card card-3" data-panel="3">
+        <div class="media-container">
+          <img src="midias/fundamental_5_ano.png" alt="Sofia com alunos do 5º ano do Ensino Fundamental">
+        </div>
+        <div class="media-info">
+          <h3>5º Ano do Fundamental</h3>
+          <p>Fechando um ciclo, preparando os alunos para os desafios do próximo.</p>
+        </div>
+      </div>
+
+      <div class="media-card card-4" data-panel="4">
+        <div class="media-container">
+          <img src="midias/palestra_sama.png" alt="Sofia ministrando palestra de Comunicação e Rapport na SAMA">
+        </div>
+        <div class="media-info">
+          <h3>Palestra de Rapport na SAMA</h3>
+          <p>Levando comunicação e conexão para além da sala de aula, com jovens e adultos.</p>
+        </div>
+      </div>
+
+      <div class="media-card card-5" data-panel="5">
+        <div class="media-container">
+          <img src="midias/unifei_sofia.jpeg" alt="Sofia como pós-graduanda em Design Instrucional pela Unifei">
+        </div>
+        <div class="media-info">
+          <h3>Pós-Graduanda na Unifei</h3>
+          <p>Hoje, unindo prática e teoria como Designer Instrucional em formação numa das melhores universidades federais do país (2026-2027).</p>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <section class="showcase-section">
+    <div class="showcase-container">
+      <div class="section-header">
+        <h2>Marcos da Minha Trajetória</h2>
+        <p>A evolução da prática pedagógica presencial à criação de ambientes digitais de aprendizagem.</p>
+      </div>
+
+      <div class="grid-projects">
+        <div class="project-card">
+          <span class="project-badge">Educação Infantil & Fundamental</span>
+          <h3>Base Pedagógica & Alfabetização</h3>
+          <p>Desenvolvimento da empatia, acolhimento e escuta ativa. Foco no estímulo do afeto pela leitura e na segurança emocional dos estudantes em suas primeiras fases.</p>
+        </div>
+
+        <div class="project-card">
+          <span class="project-badge">Ensino Técnico & Palestras</span>
+          <h3>Engajamento & Metodologias Ativas</h3>
+          <p>Uso de linguagem acessível e técnicas de rapport para conectar com jovens e adultos, desmistificando a aprendizagem e devolvendo a autoconfiança aos alunos.</p>
+        </div>
+
+        <div class="project-card">
+          <span class="project-badge">Design Instrucional & AVAs</span>
+          <h3>Ecossistemas Digitais no Moodle</h3>
+          <p>Estruturação de trilhas e-learning com navegação intuitiva, acessibilidade, matrizes bem alinhadas e rigor técnico para eliminar dúvidas de usabilidade.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Botão de Voltar para o Início no Final da Página -->
+  <div class="bottom-nav">
+    <a href="index.html" class="btn-back">← Voltar ao Portfólio</a>
+  </div>
+
+  <footer>
+    <p>© Sofia Magri — Design Instrucional & Experiências de Aprendizagem</p>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('progressBar').style.width = scrolled + '%';
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const steps = document.querySelectorAll('.step');
+      const panels = document.querySelectorAll('.media-card');
+
+      const observerOptions = {
+        root: null,
+        rootMargin: '-25% 0px -25% 0px',
+        threshold: 0.2
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            steps.forEach(s => s.classList.remove('active-step'));
+            entry.target.classList.add('active-step');
+
+            const stepNumber = entry.target.getAttribute('data-step');
+
+            panels.forEach(panel => {
+              if (panel.getAttribute('data-panel') === stepNumber) {
+                panel.classList.add('active');
+              } else {
+                panel.classList.remove('active');
+              }
+            });
+          }
+        });
+      }, observerOptions);
+
+      steps.forEach(step => observer.observe(step));
+    });
+  </script>
+</body>
+</html>

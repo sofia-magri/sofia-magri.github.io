@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificações & Formação | Sofia Magri</title>
+    <link rel="stylesheet" href="certificacao.css">
+    <link rel="icon" href="Imagens/html.ico.ico" type="image/x-icon">
+    <style>
+        /* Estilos específicos para a redução de rolagem e novos elementos */
+        
+        .secao-final-container {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-top: 1rem;
+            width: 100%;
+        }
+
+        .secao-final-container .item-curso-complementar {
+            flex: 0 0 calc(60% - 1rem);
+            margin-bottom: 0;
+            cursor: default;
+        }
+
+        .secao-final-container .cta-centralizado {
+            flex: 0 0 calc(40% - 1rem);
+            padding: 1.5rem;
+            margin-top: 0;
+            box-shadow: none;
+        }
+
+        /* Estilos para o Mini Carrossel de Depoimentos */
+        .mini-carrossel-depoimentos {
+            position: relative;
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1.5rem;
+            min-height: 140px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .depoimento-slide {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .depoimento-slide.active {
+            display: block;
+        }
+
+        .depoimento-slide p {
+            font-size: 0.95rem;
+            color: #495057;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+
+        .depoimento-slide span {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: #fd7e14;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .footer-nav {
+            background: linear-gradient(110deg, var(--cs-purple-hero-start) 0%, var(--cs-purple-hero-mid) 50%, var(--cs-purple-hero-end) 100%);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-md);
+            margin-top: 3rem;
+        }
+
+        .footer-nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .rodape {
+            text-align: center;
+            padding: 2rem 1rem 1.5rem 1rem;
+            color: #6c757d;
+            font-size: 0.95rem;
+            width: 100%;
+        }
+
+        /* AJUSTES PARA LISTA COMPACTA DE CORRELATOS COM LOGOS */
+        .grid-certificados-compacto {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 12px;
+        }
+
+        .card-certificado-compacto {
+            display: flex;
+            align-items: center;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            padding: 10px 14px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .card-certificado-compacto:hover {
+            border-color: var(--cs-purple);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Container ajustado para receber as imagens das logos proporcionalmente */
+        .selo-instituicao {
+            width: 42px;
+            height: 42px;
+            min-width: 42px;
+            min-height: 42px;
+            background-color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            margin-right: 12px;
+            flex-shrink: 0;
+            overflow: hidden;
+            border: 1px solid #eaeaea;
+        }
+
+        .selo-instituicao img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 2px;
+        }
+
+        .info-compacta h3 {
+            font-size: 0.95rem;
+            color: #0f172a;
+            margin: 0 0 2px 0;
+        }
+
+        .info-compacta p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* Classe utilitária para ocultar itens além do limite inicial */
+        .card-certificado-compacto.oculto {
+            display: none;
+        }
+
+        /* Botão Ver Mais */
+        .btn-expandir {
+            display: block;
+            margin: 20px auto 0 auto;
+            background-color: transparent;
+            color: var(--cs-purple);
+            border: 2px solid var(--cs-purple);
+            padding: 8px 20px;
+            font-weight: bold;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .btn-expandir:hover {
+            background-color: var(--cs-purple);
+            color: #ffffff;
+        }
+
+        @media (max-width: 850px) {
+            .secao-final-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .secao-final-container .item-curso-complementar,
+            .secao-final-container .cta-centralizado {
+                flex: 0 0 100%;
+            }
+            .secao-final-container .item-curso-complementar {
+                margin-bottom: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-projeto">
+        <div class="header-inner">
+            <div class="nav-topo">
+                <a href="index.html">← Voltar ao Portfólio</a>
+            </div>
+            <div class="header-conteudo">
+                <div class="texto-hero">
+                    <h1>Formação & Certificações</h1>
+                    <p>Aprimoramento contínuo, rigor técnico e embasamento teórico para experiências de aprendizagem eficazes.</p>
+                </div>
+                <div class="logo-hero">
+                    <img src="Imagens/ChatGPT Image 27_07_2026, 09_59_44.png" alt="Logo ConectaSaber">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container-principal">
+
+        <section class="card-academico-destaque">
+            <div class="badge-destaque">FORMAÇÃO ACADÊMICA EM DESTAQUE</div>
+            <h2>Pós-Graduação em Design Instrucional</h2>
+            <p class="instituicao">UNIFEI — Universidade Federal de Itajubá</p>
+            <p class="descricao-pos">
+                A UNIFEI está entre as melhores universidades federais do Brasil, com cursos de alta qualidade e precisão técnica, focada na formação de profissionais que façam a diferença no mercado.
+            </p>
+            <div class="tags-academico">
+                <span>Design Instrucional</span>
+                <span>E-Learning</span>
+                <span>Tecnologias Educacionais</span>
+                <span>Rigor Metodológico</span>
+            </div>
+        </section>
+
+        <section class="secao-bloco">
+            <div class="titulo-secao">
+                <h2>Diplomas & Formação Acadêmica Principal</h2>
+                <p>Graus acadêmicos de graduação e pós-graduação.</p>
+            </div>
+
+            <div class="grid-certificados grid-duplo">
+                <div class="card-certificado">
+                    <div class="capa-certificado" onclick="abrirModal('Imagens/Certificado_semdados.jfif', 'Licenciatura em Pedagogia')">
+                        <img src="Imagens/Certificado_semdados.jfif" alt="Licenciatura em Pedagogia" class="retrato">
+                        <div class="overlay-zoom">🔍 Clique para ampliar</div>
+                    </div>
+                    <div class="conteudo-certificado">
+                        <span class="badge-categoria">Graduação</span>
+                        <h3>Licenciatura em Pedagogia</h3>
+                        <p class="info-emissor">Faculdades Atibaia (FAAT) • Conclusão em 2009</p>
+                        <div class="tags-skills">
+                            <span>Pedagogia</span>
+                            <span>Fundamentos do Ensino</span>
+                            <span>Processos Cognitivos</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-certificado">
+                    <div class="capa-certificado" onclick="abrirModal('Imagens/declaracao_unifei_destaque.png', 'Pós-Graduação em Design Instrucional - UNIFEI')">
+                        <img src="Imagens/declaracao_unifei_destaque.png" alt="Pós-Graduação em Design Instrucional - UNIFEI" class="retrato">
+                        <div class="overlay-zoom">🔍 Clique para ampliar</div>
+                    </div>
+                    <div class="conteudo-certificado">
+                        <span class="badge-categoria">Pós-Graduação</span>
+                        <h3>Pós-Graduação em Design Instrucional</h3>
+                        <p class="info-emissor">UNIFEI — Universidade Federal de Itajubá</p>
+                        <div class="tags-skills">
+                            <span>Design Instrucional</span>
+                            <span>E-Learning</span>
+                            <span>Tecnologias Educacionais</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="secao-bloco">
+            <div class="titulo-secao">
+                <h2>Cursos Correlatos & Aperfeiçoamentos</h2>
+                <p class="subtitulo-destaque">Como designer instrucional, o <i>lifelong learning</i> é constante. Esta é apenas uma breve amostra de minha formação; mais do que estes certificados o que valida minha atuação é a aplicação prática de cada aprendizado nos projetos que apresento.</p>
+            </div>
+
+            <div class="grid-certificados-compacto" id="listaCorrelatos">
+                
+                <div class="card-certificado-compacto">
+                    <div class="selo-instituicao">
+                        <img src="Imagens/enap_logo.jpg" alt="ENAP">
+                    </div>
+                    <div class="info-compacta">
+                        <h3>Design Instrucional com Articulate Storyline 360</h3>
+                        <p>ENAP • 20 horas (2026)</p>
+                    </div>
+                </div>
+
+                <div class="card-certificado-compacto">
+                    <div class="selo-instituicao">
+                        <img src="Imagens/enap_logo.jpg" alt="ENAP">
+                    </div>
+                    <div class="info-compacta">
+                        <h3>Design Instrucional para Nativos e Imigrantes Digitais</h3>
+                        <p>ENAP • 30 horas (2026)</p>
+                    </div>
+                </div>
+
+                <div class="card-certificado-compacto">
+                    <div class="selo-instituicao">
+                        <img src="Imagens/logo_bradesco.jpg" alt="Fundação Bradesco">
+                    </div>
+                    <div class="info-compacta">
+                        <h3>Design Thinking para Educadores</h3>
+                        <p>Fundação Bradesco • 20 horas (2026)</p>
+                    </div>
+                </div>
+
+                <div class="card-certificado-compacto">
+                    <div class="selo-instituicao">
+                        <img src="Imagens/logo_Ufscar.jpg" alt="UFSCar">
+                    </div>
+                    <div class="info-compacta">
+                        <h3>Docência em EaD: Formação em Tutoria</h3>
+                        <p>UFSCar • 10 horas (2026)</p>
+                    </div>
+                </div>
+
+                <div class="card-certificado-compacto">
+                    <div class="selo-instituicao">
+                        <img src="Imagens/logo_Ufscar.jpg" alt="UFSCar">
+                    </div>
+                    <div class="info-compacta">
+                        <h3>Docência em EaD: Introdução ao Moodle</h3>
+                        <p>UFSCar • 15 horas (2026)</p>
+                    </div>
+                </div>
+
+                <div class="card-certificado-compacto">
+                    <div class="selo-instituicao">
+                        <img src="Imagens/logo_mooc.png" alt="UNIFEI">
+                    </div>
+                    <div class="info-compacta">
+                        <h3>Ferramentas Intermediárias I e II do Moodle </h3>
+                        <p>UNIFEI • 60 horas (2026)</p>
+                    </div>
+                </div>
+
+                <div class="card-certificado-compacto oculto">
+                    <div class="selo-instituicao">
+                        <img src="Imagens/logo_bradesco.jpg" alt="Fundação Bradesco">
+                    </div>
+                    <div class="info-compacta">
+                        <h3>Fluência em Inteligência Artificial</h3>
+                        <p>Fundação Bradesco • 4 horas (2026)</p>
+                    </div>
+                </div>
+
+                <div class="card-certificado-compacto oculto">
+                    <div class="selo-instituicao">
+                        <img src="Imagens/IFES.png" alt="IFES">
+                    </div>
+                    <div class="info-compacta">
+                        <h3>Gamificação no Moodle</h3>
+                        <p>IFES • 50 horas</p>
+                    </div>
+                </div>
+
+                <div class="card-certificado-compacto oculto">
+                    <div class="selo-instituicao">
+                        <img src="Imagens/faetec_logo.jfif" alt="FAETEC">
+                    </div>
+                    <div class="info-compacta">
+                        <h3>Inteligência Artificial Aplicada</h3>
+                        <p>FAETEC • 180 horas</p>
+                    </div>
+                </div>
+
+                <div class="card-certificado-compacto oculto">
+                    <div class="selo-instituicao">
+                        <img src="Imagens/faveni.jfif" alt="FAVENI">
+                    </div>
+                    <div class="info-compacta">
+                        <h3>TDCIs no Ensino Superior</h3>
+                        <p>FAVENI • 80 horas</p>
+                    </div>
+                </div>
+
+                <div class="card-certificado-compacto oculto">
+                    <div class="selo-instituicao">
+                        <img src="Imagens/IFES.png" alt="IFES">
+                    </div>
+                    <div class="info-compacta">
+                        <h3>Uso Educacional do Canva</h3>
+                        <p>IFES • 6 horas</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <button id="btnVerMais" class="btn-expandir">+ Ver mais certificados</button>
+        </section>
+
+        <section class="secao-outros-cursos secao-bloco">
+            <div class="titulo-secao">
+                <h2>Depoimentos & Indicações</h2>
+                <p>Mestres Universitários e outros comentários de DI's.</p>
+            </div>
+
+            <div class="secao-final-container">
+                <div class="item-curso-complementar">
+                    <div class="mini-carrossel-depoimentos" id="miniCarrosselDepoimentos">
+                        <div class="depoimento-slide active">
+                            <p>“A Sofia demonstra um domínio impecável da arquitetura pedagógica e engajamento no Moodle.”</p>
+                            <span>— Coordenação Pedagógica</span>
+                        </div>
+                        <div class="depoimento-slide">
+                            <p>“O curso superou nossas expectativas de retenção e usabilidade para o público jovem.”</p>
+                            <span>— Gestão de Projetos Educacionais</span>
+                        </div>
+                        <div class="depoimento-slide">
+                            <p>“Rigidez técnica unida a uma didática super humanizada e fluida.”</p>
+                            <span>— Tutor de E-Learning</span>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="cta-centralizado">
+                    <p>Quer entender como aplico todo esse embasamento teórico em projetos reais?</p>
+                    <a href="projetos.html" class="btn-download">Conheça Meus Projetos na Prática</a>
+                </section>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="footer-nav">
+        <div class="footer-nav-inner">
+            <div class="nav-topo">
+                <a href="index.html">← Voltar ao Portfólio</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="rodape">
+        <p>© Sofia Magri — Design Instrucional & Experiências de Aprendizagem</p>
+    </footer>
+
+    <div id="modalZoom" class="modal">
+        <span class="close-modal" onclick="fecharModal()">&times;</span>
+        <img class="modal-content" id="imgModal" alt="Certificado Ampliado">
+        <div id="caption"></div>
+    </div>
+
+    <script>
+        function abrirModal(src, alt) {
+            const modal = document.getElementById('modalZoom');
+            const imgModal = document.getElementById('imgModal');
+            const caption = document.getElementById('caption');
+            
+            modal.style.display = "flex";
+            imgModal.src = src;
+            caption.innerText = alt;
+        }
+
+        function fecharModal() {
+            document.getElementById('modalZoom').style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('modalZoom');
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Lógica para Expandir os Certificados Correlatos
+        document.getElementById('btnVerMais').addEventListener('click', function() {
+            const cardsOcultos = document.querySelectorAll('.card-certificado-compacto.oculto');
+            
+            cardsOcultos.forEach(card => {
+                card.classList.remove('oculto');
+            });
+
+            this.style.display = 'none';
+        });
+
+        // Lógica do Mini Carrossel de Depoimentos
+        let currentDepoimento = 0;
+        const slides = document.querySelectorAll('.depoimento-slide');
+
+        function proximoDepoimento() {
+            slides[currentDepoimento].classList.remove('active');
+            currentDepoimento = (currentDepoimento + 1) % slides.length;
+            slides[currentDepoimento].classList.add('active');
+        }
+
+        setInterval(proximoDepoimento, 4500);
+    </script>
+</body>
+</html>

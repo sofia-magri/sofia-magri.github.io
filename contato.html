@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONTATOS | Sofia Magri</title>
+    
+    <link rel="icon" href="Imagens/html.ico.ico" type="image/x-icon">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:wght@600;700&display=swap');
+        
+        /* VARIÁVEIS DE COR DA MARCA */
+        :root {
+            --cs-navy-dark: #0d1b3e;
+            --cs-navy:      #1e3a8a;
+            --cs-blue:      #3b82f6;
+            --cs-orange:    #f26b1d; /* Cor de Ação / CTA */
+            --cs-orange-hover: #d9580d;
+            --bg-light:     #f0f4f8;
+            --text-dark:    #334155;
+            --text-muted:   #64748b;
+        }
+
+        /* ESTILOS BASE */
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: var(--bg-light);
+            margin: 0;
+            padding: 60px 30px 20px 30px;
+            color: var(--text-dark);
+        }
+
+        .main-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            gap: 60px;
+            align-items: flex-start;
+        }
+
+        .coluna-esquerda {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .coluna-direita {
+            width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 180px; /* Alinhamento desktop */
+        }
+
+        /* --------------------------------------------------------------------------
+           BOTÃO VOLTAR AO PORTFÓLIO (ESTILO PÍLULA DO PRINT)
+           -------------------------------------------------------------------------- */
+        .btn-voltar {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #ffffff;
+            background: var(--cs-navy);
+            padding: 9px 22px;
+            border-radius: 50px; /* Formato Pílula */
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.2);
+            transition: all 0.25s ease;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-voltar:hover { 
+            background: var(--cs-navy-dark);
+            transform: translateX(-4px); 
+            box-shadow: 0 6px 16px rgba(13, 27, 62, 0.3);
+        }
+
+        /* TÍTULO PRINCIPAL */
+        .titulo-principal {
+            font-family: 'Kaushan Script', cursive;
+            margin: 0;
+            font-size: 2.8em;
+            background: linear-gradient(90deg, var(--cs-navy), var(--cs-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+            text-align: center;
+        }
+
+        .divisor-linha {
+            width: 60px;
+            height: 3px;
+            background-color: var(--cs-blue);
+            border-radius: 2px;
+            margin: 5px 0;
+            align-self: center;
+        }
+
+        .texto-destaque {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #4b5563;
+            margin: 0;
+        }
+
+        /* CARROSSEL */
+        .carrossel-container {
+            width: 100%;
+            max-width: 450px; 
+            margin: 0 auto;   
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        
+        .carrossel {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            border-radius: 12px;
+            padding-bottom: 8px; 
+        }
+
+        .carrossel img {
+            flex: 0 0 100%; 
+            width: 100%;
+            aspect-ratio: 4/3; 
+            object-fit: cover; 
+            scroll-snap-align: center;
+            border-radius: 12px;
+        }
+
+        /* --------------------------------------------------------------------------
+           CARDS DE CONTATO (COM HOVER LARANJA / CTA)
+           -------------------------------------------------------------------------- */
+        .card-link {
+            display: flex;
+            align-items: center;
+            background: #ffffff;
+            padding: 24px;
+            border-radius: 24px;
+            box-shadow: 0 4px 15px rgba(0,0,0,.02);
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid transparent;
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        /* HOVER DO CARD EM LARANJA (CTA) */
+        .card-link:hover {
+            transform: translateY(-3px);
+            border-color: rgba(242, 107, 29, 0.3);
+            box-shadow: 0 10px 25px rgba(242, 107, 29, 0.12); /* Sombra suave Laranja */
+        }
+
+        /* HOVER DA SETA EM LARANJA */
+        .card-link:hover .seta-circulo {
+            background-color: var(--cs-orange);
+            color: #ffffff;
+            border-color: var(--cs-orange);
+        }
+
+        .icon-box {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 18px;
+            flex-shrink: 0;
+        }
+
+        .icon-box img {
+            width: 24px;
+            height: auto;
+        }
+
+        .card-content {
+            flex: 1;
+            padding-right: 10px;
+        }
+
+        .card-content h4 {
+            margin: 0 0 4px 0;
+            color: #111827;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .card-content p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .seta-circulo {
+            width: 32px;
+            height: 32px;
+            border: 1px solid #e2e8f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cs-navy);
+            font-weight: bold;
+            font-size: 12px;
+            transition: all 0.25s ease;
+            flex-shrink: 0;
+        }
+
+        /* RODAPÉ CENTRALIZADO E FORMATADO */
+        .rodape {
+            text-align: center;
+            margin-top: 60px;
+            padding: 2.5rem 1rem 1.5rem 1rem;
+            color: #6c757d;
+            font-size: 0.95rem;
+            width: 100%;
+        }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 768px) {
+            body { padding: 30px 15px; }
+            .main-container {
+                flex-direction: column;
+                gap: 40px;
+            }
+            .coluna-direita {
+                margin-top: 0;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+
+  <!-- COLUNA DA ESQUERDA -->
+  <div class="coluna-esquerda">
+    <div>
+        <!-- BOTÃO VOLTAR AJUSTADO -->
+        <a href="index.html" class="btn-voltar">← Voltar ao Portfólio</a>
+    </div>
+
+    <h2 class="titulo-principal">Vamos conversar?</h2>
+
+    <p class="texto-destaque">
+      Acredito que boas ideias nascem de conexões verdadeiras.
+    </p>
+
+    <p class="texto-destaque">
+      Se você tem um projeto, uma oportunidade ou apenas quer trocar experiências sobre <strong style="color: var(--cs-navy);">Design Instrucional</strong>, será um prazer falar com você!
+    </p>
+
+    <div class="divisor-linha"></div>
+
+    <div style="margin: 10px 0;">
+        <div class="carrossel-container">
+            <div class="carrossel" id="meuCarrossel">
+                <img src="Imagens/perfil_sofia.png" alt="Sofia Magri">
+                <img src="Imagens/contato02.png" alt="Ambiente de Trabalho">
+                <img src="Imagens/contato03.png" alt="Projetos de Design Instrucional">
+                <img src="Imagens/contato_4.jfif" alt="Contato Sofia">
+            </div>
+        </div>
+        <p style="font-size: 12px; color: #94a3b8; text-align: center; margin-top: 8px;">Role a barra ou arraste para ver mais</p>
+    </div>
+  </div>
+
+  <!-- COLUNA DA DIREITA -->
+  <div class="coluna-direita">
+    
+    <a href="https://www.linkedin.com/in/sofia-magri-educar" target="_blank" class="card-link">
+      <div class="icon-box" style="background: #e0e7ff;"><img src="Imagens/LinkedIn.svg.png" alt="LinkedIn"></div>
+      <div class="card-content">
+        <h4>LinkedIn</h4>
+        <p>Conecte-se profissionalmente e veja minhas publicações.</p>
+      </div>
+      <div class="seta-circulo">➔</div>
+    </a>
+
+    <a href="https://wa.me/5511962765353" target="_blank" class="card-link">
+      <div class="icon-box" style="background: #dcfce7;"><img src="Imagens/zap-logo.png" alt="WhatsApp"></div>
+      <div class="card-content">
+        <h4>WhatsApp</h4>
+        <p>Respostas rápidas para propostas, dúvidas e ideias.</p>
+      </div>
+      <div class="seta-circulo">➔</div>
+    </a>
+
+    <a href="https://www.youtube.com/@sofia_conectasaber" target="_blank" class="card-link">
+      <div class="icon-box" style="background: #ffe4e6;"><img src="Imagens/youtube-logo.png" alt="YouTube"></div>
+      <div class="card-content">
+        <h4>YouTube</h4>
+        <p>Assista aos meus conteúdos, tutoriais e projetos em vídeo.</p>
+      </div>
+      <div class="seta-circulo">➔</div>
+    </a>
+
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=sofiamagri.empreender@gmail.com" target="_blank" class="card-link">
+    <div class="icon-box" style="background: #fee2e2;">
+        <img src="Imagens/gmail.png" alt="E-mail">
+    </div>
+
+    <div class="card-content">
+        <h4>E-mail</h4>
+        <p>Para solicitações formais, projetos e orçamentos.</p>
+    </div>
+
+    <div class="seta-circulo">➔</div>
+</a>
+  </div>
+</div>
+
+<!-- RODAPÉ ATUALIZADO COM O TEXTO COMPLETO -->
+<footer class="rodape">
+    <p>© 2026 Sofia Magri — Design Instrucional & Experiências de Aprendizagem</p>
+</footer>
+
+<script>
+    const carrossel = document.getElementById('meuCarrossel');
+    setInterval(() => {
+        const maxScroll = carrossel.scrollWidth - carrossel.clientWidth;
+        if (carrossel.scrollLeft >= maxScroll - 10) {
+            carrossel.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+            carrossel.scrollBy({ left: carrossel.clientWidth, behavior: 'smooth' });
+        }
+    }, 3000);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,601 @@
+/* ==========================================================================
+   1. DEFINIÇÃO DAS VARIÁVEIS DA MARCA & BASE
+   ========================================================================== */
+:root {
+    --cs-purple: #6847de;
+    --cs-purple-hero-start: #1a2780;
+    --cs-purple-hero-mid: #3535ab;
+    --cs-purple-hero-end: #6847de;
+    --cs-orange: #f26b1d;
+    --bg-card: #ffffff;
+    --border-color: #e2e8f0;
+    --text-main: #334155;
+    --text-muted: #64748b;
+    --font-heading: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-pill: 9999px;
+    --transition: all 0.25s ease;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-heading);
+    background-color: #f8fafc;
+    color: var(--text-main);
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   2. HEADER / HERO DA PÁGINA
+   ========================================================================== */
+.header-projeto {
+    background: linear-gradient(110deg, var(--cs-purple-hero-start) 0%, var(--cs-purple-hero-mid) 50%, var(--cs-purple-hero-end) 100%);
+    color: #ffffff;
+    padding: 2.5rem 1.5rem;
+    box-shadow: var(--shadow-md);
+    margin-bottom: 2.5rem;
+}
+
+.header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.nav-topo a {
+    display: inline-flex;
+    align-items: center;
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.18);
+    padding: 0.5rem 1.1rem;
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.nav-topo a:hover {
+    background-color: var(--cs-orange);
+    border-color: var(--cs-orange);
+    transform: translateX(-4px);
+}
+
+.header-conteudo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.texto-hero h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.texto-hero p {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    opacity: 0.92;
+    max-width: 650px;
+}
+
+.logo-hero img {
+    max-height: 160px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.25));
+    transition: transform 0.3s ease;
+}
+
+.logo-hero img:hover {
+    transform: scale(1.03);
+}
+
+/* ==========================================================================
+   3. CONTAINER PRINCIPAL E ESTRUTURA DAS SEÇÕES
+   ========================================================================== */
+.container-principal {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem 4rem;
+}
+
+.secao-bloco {
+    margin-bottom: 3.5rem;
+}
+
+.titulo-secao {
+    margin-bottom: 1.75rem;
+}
+
+.titulo-secao h2 {
+    font-size: 1.5rem;
+    color: #0f172a;
+    margin-bottom: 0.25rem;
+}
+
+.titulo-secao p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.subtitulo-destaque {
+    color: var(--cs-purple) !important;
+    font-weight: 600;
+    font-size: 1rem !important;
+}
+
+/* ==========================================================================
+   4. CARD DE DESTAQUE (UNIFEI DESTAQUE)
+   ========================================================================== */
+.card-academico-destaque {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-left: 6px solid var(--cs-purple);
+    border-radius: var(--radius-md);
+    padding: 2rem;
+    margin-bottom: 3rem;
+    box-shadow: var(--shadow-md);
+}
+
+.badge-destaque {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--cs-purple);
+    background: rgba(104, 71, 222, 0.1);
+    padding: 0.3rem 0.8rem;
+    border-radius: var(--radius-pill);
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.05em;
+}
+
+.card-academico-destaque h2 {
+    margin: 0 0 0.2rem 0;
+    color: #0f172a;
+    font-size: 1.5rem;
+}
+
+.card-academico-destaque .instituicao {
+    font-weight: 600;
+    color: var(--cs-purple);
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+}
+
+.card-academico-destaque .descricao-pos {
+    line-height: 1.6;
+    color: var(--text-main);
+    margin-bottom: 1.25rem;
+}
+
+.tags-academico {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tags-academico span {
+    background: #f1f5f9;
+    color: var(--text-main);
+    padding: 0.3rem 0.75rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--border-color);
+}
+
+/* ==========================================================================
+   5. GRIDS DE CERTIFICADOS & ESTILOS GERAIS DE CARD
+   ========================================================================== */
+.grid-certificados {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.75rem;
+}
+
+.grid-duplo {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.card-certificado {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.card-certificado:hover {
+    box-shadow: var(--shadow-hover);
+    border-color: var(--cs-purple);
+    transform: translateY(-4px);
+}
+
+.capa-certificado {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+    cursor: pointer;
+    background: #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.capa-certificado img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.capa-certificado img.retrato {
+    object-fit: contain !important;
+    padding: 8px;
+}
+
+.capa-certificado:hover img {
+    transform: scale(1.05);
+}
+
+.overlay-zoom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.6);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: var(--transition);
+    z-index: 2;
+}
+
+.capa-certificado:hover .overlay-zoom {
+    opacity: 1;
+}
+
+.conteudo-certificado {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.badge-categoria {
+    display: inline-block;
+    align-self: flex-start;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--cs-purple);
+    background: rgba(104, 71, 222, 0.1);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+}
+
+.conteudo-certificado h3 {
+    font-size: 1.1rem;
+    margin: 0 0 0.4rem 0;
+    color: #0f172a;
+}
+
+.info-emissor {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.tags-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: auto;
+}
+
+.tags-skills span {
+    font-size: 0.75rem;
+    background: #f8fafc;
+    border: 1px solid var(--border-color);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    color: var(--text-main);
+}
+
+/* ==========================================================================
+   6. LISTA DE CURSOS COMPLEMENTARES & CORRELATOS (COM LOGOS)
+   ========================================================================== */
+.grid-certificados-compacto {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 12px;
+}
+
+.card-certificado-compacto {
+    display: flex;
+    align-items: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.card-certificado-compacto:hover {
+    border-color: var(--cs-purple);
+    box-shadow: var(--shadow-md);
+}
+
+/* Container ajustado para exibir as imagens das logos de forma limpa e proporcional */
+.selo-instituicao {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    min-height: 42px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    margin-right: 12px;
+    flex-shrink: 0;
+    overflow: hidden;
+    border: 1px solid #eaeaea;
+}
+
+.selo-instituicao img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 2px;
+}
+
+.info-compacta h3 {
+    font-size: 0.95rem;
+    color: #0f172a;
+    margin: 0 0 2px 0;
+}
+
+.info-compacta p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.card-certificado-compacto.oculto {
+    display: none;
+}
+
+.btn-expandir {
+    display: block;
+    margin: 20px auto 0 auto;
+    background-color: transparent;
+    color: var(--cs-purple);
+    border: 2px solid var(--cs-purple);
+    padding: 8px 20px;
+    font-weight: bold;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.9rem;
+}
+
+.btn-expandir:hover {
+    background-color: var(--cs-purple);
+    color: #ffffff;
+}
+
+/* ==========================================================================
+   7. LISTA DE CURSOS COMPLEMENTARES & CONTAINER FINAL (LADO A LADO)
+   ========================================================================== */
+.secao-final-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.secao-final-container .item-curso-complementar {
+    flex: 0 0 calc(60% - 1rem);
+    margin-bottom: 0;
+    cursor: default;
+}
+
+.secao-final-container .cta-centralizado {
+    flex: 0 0 calc(40% - 1rem);
+    padding: 1.5rem;
+    margin-top: 0;
+    box-shadow: var(--shadow-sm);
+}
+
+.item-curso-complementar {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.item-curso-complementar:hover {
+    border-color: var(--cs-purple);
+    box-shadow: var(--shadow-md);
+}
+
+/* ==========================================================================
+   8. CALL TO ACTION (CTA FINAL)
+   ========================================================================== */
+.cta-centralizado {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+}
+
+.cta-centralizado:hover {
+    border-color: var(--cs-purple);
+    box-shadow: var(--shadow-hover);
+}
+
+.cta-centralizado p {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #0f172a;
+    margin-top: 0;
+    margin-bottom: 1.1rem;
+}
+
+.btn-download {
+    display: inline-block;
+    background-color: var(--cs-orange);
+    color: #ffffff !important;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+    transition: var(--transition);
+    box-shadow: 0 4px 12px rgba(242, 107, 29, 0.3);
+}
+
+.btn-download:hover {
+    background-color: #d9580d;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(242, 107, 29, 0.45);
+}
+
+/* ==========================================================================
+   9. MODAL DE ZOOM
+   ========================================================================== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 23, 42, 0.92);
+    backdrop-filter: blur(6px);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 80vh;
+    border-radius: var(--radius-md);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    object-fit: contain;
+}
+
+#caption {
+    margin-top: 1rem;
+    color: #ffffff;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+.close-modal {
+    position: absolute;
+    top: 1.25rem;
+    right: 2rem;
+    color: #ffffff;
+    font-size: 3rem;
+    font-weight: 300;
+    cursor: pointer;
+    line-height: 1;
+    transition: var(--transition);
+}
+
+.close-modal:hover {
+    color: var(--cs-orange);
+    transform: scale(1.15);
+}
+
+/* ==========================================================================
+   10. RESPONSIVIDADE
+   ========================================================================== */
+@media (max-width: 850px) {
+    .grid-duplo {
+        grid-template-columns: 1fr;
+    }
+
+    .secao-final-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .secao-final-container .item-curso-complementar,
+    .secao-final-container .cta-centralizado {
+        flex: 0 0 100%;
+        width: 100%;
+    }
+
+    .secao-final-container .item-curso-complementar {
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-conteudo {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo-hero img {
+        max-height: 120px;
+    }
+
+    .grid-certificados {
+        grid-template-columns: 1fr;
+    }
+
+    .texto-hero h1 {
+        font-size: 1.7rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .item-curso-complementar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+}

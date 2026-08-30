@@ -1,0 +1,728 @@
+/* ============================================================
+   SOFIA MAGRI — PORTFÓLIO
+   CSS ÚNICO — VERSÃO OTIMIZADA (HERO COMPACTO + CTA DINÂMICO)
+   ============================================================ */
+
+
+/* ============================================================
+   VARIÁVEIS
+   ============================================================ */
+
+:root {
+  --header-bg:
+    linear-gradient(
+      110deg,
+      #1a2780 0%,
+      #3535ab 50%,
+      #6847de 100%
+    );
+
+  --body-bg: #f8fafc;
+  --card-bg: #ffffff;
+  --primary-purple: #5c3bc9;
+  --primary-purple-light: #eef2ff;
+  --accent-orange: #f26b1d;
+  --accent-orange-dark: #d95a16;
+  --text-dark: #1e293b;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+  --font-title: 'Kaushan Script', cursive;
+  --font-main: 'Plus Jakarta Sans', sans-serif;
+}
+
+
+/* ============================================================
+   RESET
+   ============================================================ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--body-bg);
+  color: var(--text-dark);
+  font-family: var(--font-main);
+  line-height: 1.6;
+}
+
+
+/* ============================================================
+   HERO / CABEÇALHO (ALTURA REDUZIDA E COMPACTA)
+   ============================================================ */
+
+.top-header {
+  background: var(--header-bg);
+  color: #ffffff;
+  padding: 2.2rem 1.5rem 4.8rem; /* Padding reduzido para diminuir a altura vertical */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  min-height: 180px; /* Reduzido de 250px */
+}
+
+
+/* ============================================================
+   LOGO DA HERO
+   ============================================================ */
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.brand-logo img {
+  height: 125px; /* Reduzido proporcionalmente para equilibrar o Hero */
+  width: auto;
+  max-width: 280px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.18));
+  transition: transform 0.3s ease;
+}
+
+.brand-logo img:hover {
+  transform: scale(1.03);
+}
+
+
+/* ============================================================
+   INFORMAÇÕES DA HERO
+   ============================================================ */
+
+.header-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header-info h1 {
+  font-family: var(--font-title);
+  font-size: 2.8rem; /* Ajustado de 3.5rem para maior proporção */
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: 0.2rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.header-info p {
+  font-size: 0.98rem;
+  font-weight: 500;
+  opacity: 0.95;
+}
+
+.header-info .separator {
+  color: var(--accent-orange);
+  margin: 0 0.45rem;
+  font-weight: 800;
+}
+
+
+/* ============================================================
+   FOTO + NAVEGAÇÃO
+   ============================================================ */
+
+.profile-nav-wrapper {
+  max-width: 1050px;
+  margin: -55px auto 3rem; /* Margem negativa recalibrada para a nova altura do Hero */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.8rem;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 5;
+}
+
+
+/* ============================================================
+   FOTO DE PERFIL
+   ============================================================ */
+
+.profile-avatar {
+  width: 155px; /* Reduzido levemente de 175px para alinhamento fluído */
+  height: 155px;
+  border-radius: 50%;
+  border: 4px solid #ffffff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  object-fit: cover;
+  background: #e2e8f0;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.profile-avatar:hover {
+  border-color: var(--primary-purple);
+  box-shadow: 0 6px 20px rgba(92, 59, 201, 0.35);
+  transform: scale(1.03);
+}
+
+
+/* ============================================================
+   NAVEGAÇÃO
+   ============================================================ */
+
+.nav-pill {
+  background: #ffffff;
+  padding: 0.5rem 0.8rem;
+  border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.nav-pill a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.nav-pill a.active {
+  background: var(--primary-purple);
+  color: #ffffff;
+}
+
+.nav-pill a:hover:not(.active) {
+  color: var(--primary-purple);
+  background: var(--primary-purple-light);
+}
+
+
+/* ============================================================
+   CONTAINER PRINCIPAL
+   ============================================================ */
+
+.main-container {
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+}
+
+
+/* ============================================================
+   FRASE PRINCIPAL
+   ============================================================ */
+
+.hero-statement {
+  text-align: center;
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  max-width: 850px;
+  margin: 2rem auto 1.8rem;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+}
+
+
+/* ============================================================
+   PILLS DE COMPETÊNCIAS
+   ============================================================ */
+
+.pills-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 3.8rem;
+}
+
+.tag-badge {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  padding: 0.45rem 1.1rem;
+  border-radius: 20px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: all 0.25s ease;
+  cursor: default;
+}
+
+.tag-badge:hover {
+  background-color: var(--primary-purple);
+  color: #ffffff;
+  border-color: var(--primary-purple);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(92, 59, 201, 0.25);
+}
+
+
+/* ============================================================
+   CARTÃO "POR QUE DESIGN INSTRUCIONAL?" + CTA ROXO PARA LARANJA
+   ============================================================ */
+
+.quote-card {
+  background: #ffffff;
+  border-left: 5px solid var(--accent-orange);
+  padding: 2.2rem 2.5rem;
+  border-radius: 0 16px 16px 0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+  margin-bottom: 4rem;
+}
+
+.quote-card .card-subtitle {
+  color: var(--accent-orange);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+
+.quote-card h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
+}
+
+.quote-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+/* CTA Estilizado: Padrão Roxo -> Hover Laranja */
+.quote-card a.btn-quote,
+.quote-card a {
+  background-color: var(--primary-purple);
+  color: #ffffff;
+  padding: 0.75rem 1.4rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.92rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.quote-card a.btn-quote:hover,
+.quote-card a:hover {
+  background-color: var(--accent-orange);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(242, 107, 29, 0.35);
+}
+
+
+/* ============================================================
+   TÍTULOS DE SEÇÃO
+   ============================================================ */
+
+.section-title-group {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.section-title-group h2 {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 0.4rem;
+}
+
+.section-title-group p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+
+/* ============================================================
+   PROJETOS
+   ============================================================ */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 1.8rem;
+  margin-bottom: 4.5rem;
+}
+
+.project-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.project-badge {
+  background: var(--primary-purple-light);
+  color: var(--primary-purple);
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.35rem 0.8rem;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 1rem;
+}
+
+.project-card h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 0.6rem;
+}
+
+.project-card p {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+
+/* ============================================================
+   BOTÃO DE PROJETO
+   ============================================================ */
+
+.btn-project {
+  background: var(--accent-orange);
+  color: #ffffff;
+  padding: 0.75rem 1.4rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn-project:hover {
+  background: var(--accent-orange-dark);
+  transform: translateY(-1px);
+}
+
+
+/* ============================================================
+   COMPETÊNCIAS
+   ============================================================ */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.2rem;
+  margin-bottom: 4rem;
+}
+
+.skill-box {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 1.6rem;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.skill-box:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary-purple);
+}
+
+
+/* ============================================================
+   ÍCONES SVG — CAIXA
+   ============================================================ */
+
+.skill-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 9px;
+  background: var(--primary-purple-light);
+  color: var(--primary-purple);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  flex-shrink: 0;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.skill-box:hover .skill-icon {
+  background: #e5e9ff;
+  transform: translateY(-1px);
+}
+
+
+/* ============================================================
+   ÍCONES SVG — DESENHO
+   ============================================================ */
+
+.skill-icon svg {
+  width: 23px;
+  height: 23px;
+  display: block;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+
+/* ============================================================
+   TÍTULO DOS CARDS
+   ============================================================ */
+
+.skill-box h4 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 0.6rem;
+}
+
+.skill-box p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+
+/* ============================================================
+   RODAPÉ
+   ============================================================ */
+
+.site-footer {
+  width: 100%;
+  background: #ffffff;
+  border-top: 1px solid var(--border-color);
+}
+
+
+/* ============================================================
+   IMAGENS DO RODAPÉ
+   ============================================================ */
+
+.footer-images {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer-images img {
+  max-width: 180px;
+  max-height: 90px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.footer-images img:hover {
+  transform: translateY(-3px);
+  opacity: 0.85;
+}
+
+
+/* ============================================================
+   COPYRIGHT
+   ============================================================ */
+
+.footer-bottom {
+  text-align: center;
+  padding: 2rem 1rem 2.5rem;
+}
+
+.footer-bottom p {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+
+/* ============================================================
+   RESPONSIVIDADE — TABLETS
+   ============================================================ */
+
+@media (max-width: 800px) {
+  .top-header {
+    padding: 2rem 1.5rem 4.5rem;
+    gap: 1.8rem;
+  }
+
+  .brand-logo img {
+    height: 105px;
+    max-width: 220px;
+  }
+
+  .header-info h1 {
+    font-size: 2.4rem;
+  }
+
+  .header-info p {
+    font-size: 0.88rem;
+  }
+
+  .profile-nav-wrapper {
+    flex-direction: column;
+    margin-top: -50px;
+  }
+
+  .nav-pill {
+    flex-wrap: wrap;
+    border-radius: 20px;
+    max-width: 100%;
+  }
+}
+
+
+/* ============================================================
+   RESPONSIVIDADE — CELULAR
+   ============================================================ */
+
+@media (max-width: 600px) {
+  .top-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1.2rem 4.8rem;
+    gap: 1rem;
+  }
+
+  .brand-logo img {
+    height: 100px;
+    max-width: 210px;
+  }
+
+  .header-info h1 {
+    font-size: 2.2rem;
+  }
+
+  .header-info p {
+    font-size: 0.82rem;
+    line-height: 1.6;
+  }
+
+  .header-info .separator {
+    margin: 0 0.2rem;
+  }
+
+  .profile-nav-wrapper {
+    margin: -45px auto 2.5rem;
+    padding: 0 0.8rem;
+  }
+
+  .profile-avatar {
+    width: 130px;
+    height: 130px;
+  }
+
+  .nav-pill {
+    width: 100%;
+    padding: 0.5rem;
+    gap: 0.2rem;
+    justify-content: center;
+  }
+
+  .nav-pill a {
+    font-size: 0.78rem;
+    padding: 0.55rem 0.65rem;
+  }
+
+  .main-container {
+    padding: 0 1rem 3rem;
+  }
+
+  .hero-statement {
+    font-size: 1.25rem;
+    margin-top: 1.2rem;
+  }
+
+  .pills-row {
+    margin-bottom: 2.5rem;
+  }
+
+  .tag-badge {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .quote-card {
+    padding: 1.6rem 1.4rem;
+  }
+
+  .quote-card h3 {
+    font-size: 1.15rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card {
+    padding: 1.5rem;
+  }
+
+  .section-title-group h2 {
+    font-size: 1.6rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 9px;
+  }
+
+  .skill-icon svg {
+    width: 23px;
+    height: 23px;
+  }
+
+  .footer-images {
+    padding: 2rem 1rem 0.5rem;
+    gap: 1rem;
+  }
+
+  .footer-images img {
+    max-width: 130px;
+    max-height: 70px;
+  }
+}
+
+
+/* ============================================================
+   ACESSIBILIDADE
+   ============================================================ */
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--accent-orange);
+  outline-offset: 3px;
+}
