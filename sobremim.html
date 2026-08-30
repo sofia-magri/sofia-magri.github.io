@@ -251,6 +251,53 @@
       font-size: 0.88rem; color: var(--text-muted);
       border-top: 1px solid var(--border-color);
     }
+
+    /* =========================================
+       CORREÇÃO PARA DISPOSITIVOS MÓVEIS
+       ========================================= */
+    @media (max-width: 899px) {
+      .scrolly-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+      
+      /* O 'display: contents' faz com que esses containers deixem de agir como caixas, 
+         transformando os textos (.step) e imagens (.media-card) em filhos diretos do container principal */
+      .story-column, .sticky-panel {
+        display: contents;
+      }
+      
+      .step {
+        margin-bottom: 1.5rem;
+      }
+      
+      /* Cancela o position absolute e força a exibição das imagens no fluxo normal da página */
+      .media-card {
+        position: relative !important;
+        opacity: 1 !important;
+        transform: none !important;
+        pointer-events: auto !important;
+        min-height: auto;
+        margin-bottom: 4rem; /* Espaçamento antes do próximo capítulo */
+      }
+      
+      /* Intercalando a ordem visual: Texto > Imagem > Texto > Imagem... */
+      .step[data-step="1"] { order: 1; }
+      .media-card[data-panel="1"] { order: 2; }
+      
+      .step[data-step="2"] { order: 3; }
+      .media-card[data-panel="2"] { order: 4; }
+      
+      .step[data-step="3"] { order: 5; }
+      .media-card[data-panel="3"] { order: 6; }
+      
+      .step[data-step="4"] { order: 7; }
+      .media-card[data-panel="4"] { order: 8; }
+      
+      .step[data-step="5"] { order: 9; }
+      .media-card[data-panel="5"] { order: 10; }
+    }
   </style>
 </head>
 <body>
